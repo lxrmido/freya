@@ -1,0 +1,6 @@
+composer.lock
+vendor
+config.php
+data
+cache
+dev/front/node_modules

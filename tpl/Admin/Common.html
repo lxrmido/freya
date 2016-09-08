@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title><{$title}></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <{include file="$static_tpl"}>
+</head>
+<body>
+    <script>
+        var _RG = <{$_RG_JSON}>;
+        var _CF = <{$_CF_JSON}>;
+    </script>
+    <{include file="$header_tpl"}>
+    <div class="admin-menu" id="admin-menu">
+    	<div class="group">
+    		<div class="hd">
+    			<i class="entypo-icon-layout"></i>
+    			<span>系统</span>
+    			<div class="fold">
+    				<i class="entypo-icon-up-open"></i>
+    			</div>
+    			<div class="unfold">
+    				<i class="entypo-icon-down-open"></i>
+    			</div>
+    		</div>
+    		<div class="field">
+		    	<a class="item" data-c="admin" data-a="main">
+					<span>概述</span>
+		    	</a>
+    		</div>
+    	</div>
+    	<div class="group">
+    		<div class="hd">
+    			<i class="entypo-icon-user"></i>
+    			<span>用户与权限</span>
+    			<div class="fold">
+    				<i class="entypo-icon-up-open"></i>
+    			</div>
+    			<div class="unfold">
+    				<i class="entypo-icon-down-open"></i>
+    			</div>
+    		</div>
+    		<div class="field">
+		    	<a class="item" data-c="admin" data-a="user">
+					<span>用户管理</span>
+		    	</a>
+		    	<a class="item" data-c="admin" data-a="usergroup">
+					<span>用户组管理</span>
+		    	</a>
+                <a class="item" data-c="admin" data-a="auth">
+                    <span>权限列表</span>
+                </a>
+                <a class="item" data-c="admin" data-a="character">
+                    <span>角色定义</span>
+                </a>
+    		</div>
+    	</div>
+    </div>
+    <div class="admin-page">
+	    <!--  嵌入页面从此处开始  -->
+	    <{include file="$tpl_name"}>
+	    <!--  嵌入页面到此处结束  -->
+    </div>
+    <{section name=file loop=$tpl}>
+        <!-- TPL -->
+        <{include file="<{$tpl_basic}><{$tpl[file]}>.html"}>
+    <{/section}>
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>
