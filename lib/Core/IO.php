@@ -86,8 +86,10 @@ class IO{
 				switch($type){
 				# 字符串
 				case 'string':
+					return self::filt_string($_REQUEST[$item]);
+				# HTML
 				case 'html':
-					return '';
+					return self::filt_html($_REQUEST[$item]);
 				# 整数
 				case 'uint':
 				case 'int':
@@ -268,8 +270,8 @@ class IO{
 				$error['throw'] = "错误码：{$error['code']}\n消息内容：{$error['message']}";
 			}else{
                 self::h();
-                if(class_exists('TPL')){
-                	TPL::show('public/error', [
+                if(class_exists('\Lib\Core\TPL')){
+                	TPL::show('Core/Error', [
                 		'error' => $error
                 	]);
                 	die();
