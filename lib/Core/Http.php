@@ -9,7 +9,7 @@ class Http{
 	 */
 	public static function makeURL($c, $a, $args = []){
 		if(RUNTIME_REWRITE){
-			$url = WEBSITE_URL_ROOT . '/' . $c . '/' . $a;
+			$url = WEBSITE_URL_ROOT . '/' . $c . '/' . $a . '/';
 			if(!empty($args)){
 				$f = true;
 				foreach ($args as $key => $value) {
@@ -46,7 +46,12 @@ class Http{
 		}
 
 		if($auth && (!\Lib\User\Auth::is_ca_ignored($c, $a))){
-			\Lib\User\User::auth();
+			$u = \Lib\User\User::auth();
+			if(\Lib\User\Auth::is_permitted($u, $c, $a)){
+
+			}else{
+				IO::E('权限不足');
+			}
 		}
 
 		global $_RG;

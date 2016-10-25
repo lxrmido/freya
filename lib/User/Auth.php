@@ -100,7 +100,11 @@ class Auth{
 	}
 
 	public static function is_character_permitted($character_id, $controller, $action){
-		$r = DB::one("SELECT `character_id` FROM `auth_character_controller` WHERE `character_id`=:character_id AND `controller`=:controller AND `action`=:action");
+		$r = DB::one("SELECT `character_id` FROM `auth_character_controller` WHERE `character_id`=:character_id AND `controller`=:controller AND `action`=:action", [
+			'character_id' => $character_id,
+			'controller'   => $controller,
+			'action'       => $action
+		]);
 		return !empty($r);
 	}
 
@@ -115,8 +119,18 @@ class Auth{
 	}
 
 	public static function group_avail_characters($group_id){
-		$rs = DB::all_one("SELECT `cid` FROM `user_group_character` WHERE `gid`=:?group_id", ['group_id'=>$group_id]);
+		$rs = DB::all_one("SELECT `cid` FROM `user_group_character` WHERE `gid`=:group_id", ['group_id'=>$group_id]);
 		return $rs;
+	}
+
+	public static function is_permitted($u, $controller, $action){
+		if($u['id'] == 1){
+			return true;
+		}
+		if(self::is_group_permitted($u['group'], $controller, $action)){
+			return true;
+		}
+		return false;
 	}
 
 }

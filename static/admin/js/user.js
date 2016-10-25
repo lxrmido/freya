@@ -178,7 +178,7 @@ $(function(){
 						sub : []
 					}];
 					var map  = {0:list[0]};
-					var selMap = {0:list[0]};
+					var selMap = {0:list[0].name};
 					d.list.forEach(function(x){
 						x.id     = parseInt(x.id);
 						x.parent = parseInt(x.parent);
@@ -201,7 +201,7 @@ $(function(){
 						groupList.add(x, 0);
 					});
 					groupList.select(userList.group);
-					selAddGroup.resetOptions(selMap).select(0);
+					selAddGroup.resetOptions(selMap).select(2);
 				}, function(c, m){
 					groupList.loading(false);
 					G.error(m);

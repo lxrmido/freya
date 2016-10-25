@@ -60,7 +60,7 @@ class UserController extends BaseController{
 
 	// 登录页面
 	public function login(){
-		$this->show('user/login');
+		$this->show('User/Login');
 	}
 
 	// 登陆成功的页面

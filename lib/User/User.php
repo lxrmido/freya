@@ -49,11 +49,11 @@ class User{
         }
         $u = self::get_login();
         if(!$u){
-            global $JSON_IO;
-            if($JSON_IO){
+            global $FREYA_JSON_IO;
+            if($FREYA_JSON_IO){
                 IO::e(CODE_ADMIN_NOLOGIN, '请先登录');
             }else{
-                \Lib\Core\Http::routeControllerAction('user', 'login', false);
+                \Lib\Core\Http::routeControllerAction('User', 'login', false);
             }
         }
         self::$last = self::get_details($u);

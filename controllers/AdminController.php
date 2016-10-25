@@ -40,6 +40,7 @@ class AdminController extends BaseController{
 				'main'      => '概述',
 				'user'      => '用户管理',
 				'auth'      => '权限列表',
+				'usergroup' => '用户组管理',
 				'character' => '角色定义'
 			]
 		];

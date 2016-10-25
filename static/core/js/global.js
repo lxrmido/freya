@@ -165,7 +165,7 @@ var G = (function(window){
     G.url = function(c, a, args){
         var url, i, fi;
         if(_RG.rewrite){
-            url = _RG.url_root + '/' + c + '/' + a;
+            url = _RG.url_root + '/' + c + '/' + a + '/';
             fi = true;
         }else{
             url = _RG.url_root + '/?c=' + c + '&a=' + a;

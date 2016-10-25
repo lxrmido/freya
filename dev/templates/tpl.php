@@ -9,7 +9,15 @@ class <{$className}> extends TplConfig{
 	public function getConfig(){
 
 		$config = TPL::extendConfig('Core/Common', [
-			
+			'js' => [
+				
+			],
+			'css' => [
+
+			],
+			'less' => [
+
+			]
 		]);
 
 		return $config;
