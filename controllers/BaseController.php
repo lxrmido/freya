@@ -55,7 +55,7 @@ class BaseController{
 	 * @return $var
 	 */
 	public function i($var_name, $pre_set = null, $var_type = 'string'){
-		return IO::I($var_name, $pre_set $var_type);
+		return IO::I($var_name, $pre_set, $var_type);
 	}
 
 	/**
